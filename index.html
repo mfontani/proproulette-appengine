@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PropRoulette</title>
+        <style>
+            html, body { height: 100%; margin: 0; overflow: hidden; }
+            a { color: #fff; }
+            #iframe {
+                height: 100%;
+                width: 100%;
+                border-width: 0;
+            }
+            #topbar {
+                background-color: #06c;
+                color: #fff;
+                height: 22px;
+                width: 100%;
+                padding: 5px;
+                border-bottom: 1px solid #999;
+            }
+            a.button span {
+                display: block;
+                color: #06c;
+                padding: 2px;
+                margin-right: 5px;
+                background-color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="topbar">
+            <aside style="float:left;">
+            {% if username %}Hello {{ username.escape }},
+            y{% else %}Y{% endif%}ou are viewing a random property from the most recent 20 properties on <a href="http://www.s1homes.com/">s1homes</a>
+            </aside>
+            <nav style="float:right;">
+                <a href ="/" class="button" onclick="this.blur();"><span><strong>» play again »</strong></span></a>
+            </nav>
+        </header>
+        <article>
+            <iframe id="iframe" src="http://www.s1homes.com/{{ randomurl }}"></iframe>
+        </article>
+    </body>
+</html>
+
