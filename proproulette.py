@@ -39,7 +39,7 @@ def get_last_20_props():
         if last20props.status_code != 200:
             logging.error("status_code not 200: %s" % last20props.status_code)
             return ""
-        if not memcache.add("last20props", last20props.content, 2400):
+        if not memcache.add("last20props", last20props.content, 3600):
             logging.error("Memcache set failed")
         return last20props.content
 
